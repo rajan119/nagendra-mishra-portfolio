@@ -2,7 +2,7 @@ import StampBadge from "./StampBadge";
 
 export default function Hero() {
   return (
-    <section className="overflow-hidden py-16 sm:py-24">
+    <section className=" bg-[#0f2a2a] overflow-hidden py-16 sm:py-24">
       <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-11 px-5 sm:px-8 lg:grid-cols-[1.4fr_0.8fr] lg:gap-16">
         <div>
           <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-brass">

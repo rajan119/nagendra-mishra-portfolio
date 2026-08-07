@@ -33,7 +33,7 @@ const TIMELINE = [
 
 export default function Timeline() {
   return (
-    <section id="track-record" className="bg-ink py-20 sm:py-24">
+    <section id="track-record" className="bg-[#0f2a2a] py-20 sm:py-24">
       <div className="mx-auto max-w-[1080px] px-5 sm:px-8">
         <div className="mb-12 max-w-[620px]">
           <span className="mb-3.5 block font-mono text-xs uppercase tracking-[0.14em] text-brass">
