@@ -1,14 +1,23 @@
+import Image from 'next/image';
+
 export default function About() {
   return (
     <section id="about" className="bg-paper py-20 sm:py-24">
       <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
-        {/* Monogram placeholder — swap for a real headshot in /public */}
-        <div className="mx-auto flex h-64 w-64 items-center justify-center rounded-full border border-brass/40 bg-ink2 sm:h-72 sm:w-72">
-          <span className="font-display text-6xl text-brass">NM</span>
+        {/* Profile image */}
+        <div className="mx-auto flex h-64 w-64 items-center justify-center rounded-full border border-brass/40 bg-ink2 sm:h-72 sm:w-72 overflow-hidden">
+          <Image
+            src="/images/246.png"
+            alt="Nagendra Mishra - Profile"
+            width={288}
+            height={288}
+            className="h-full w-full object-cover"
+            priority
+          />
         </div>
 
         <div>
-          <span className="mb-4 block font-mono text-xs uppercase tracking-[0.14em] text-[#0f2a2a] ">
+          <span className="mb-4 block font-mono text-xs uppercase tracking-[0.14em] text-[#0f2a2a]">
             About
           </span>
           <h2 className="max-w-[22ch] font-display text-[28px] leading-[1.2] sm:text-[34px] text-[#0f2a2a]">
@@ -22,7 +31,7 @@ export default function About() {
             thousands of businesses supported through expos, accelerator
             programs, and digital transformation work along the way.
           </p>
-          <p className="mt-4 max-w-[58ch] text-[15.5px]  text-[#0f2a2a]">
+          <p className="mt-4 max-w-[58ch] text-[15.5px] text-[#0f2a2a]">
             Alongside the business pursuits, an LLB (Hons) is now complete and
             an LLM (Hons) is underway, with the ambition of qualifying as a
             barrister — bridging commercial acumen with legal expertise, one

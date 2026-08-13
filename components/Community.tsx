@@ -1,13 +1,18 @@
+import Image from 'next/image';
+
 export default function Community() {
   return (
     <section id="community" className="bg-paper py-20 sm:py-24">
       <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-10 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-        <img
-          src="https://picsum.photos/seed/helpfulhounds/640/480"
-          alt="Assistance dog placeholder imagery for Helpful Hounds"
-          className="h-64 w-full rounded-sm object-cover grayscale sm:h-80"
-          loading="lazy"
-        />
+        <div className="h-64 w-full rounded-sm overflow-hidden sm:h-80">
+          <Image
+            src="/images/260.png"
+            alt="Assistance dog for Helpful Hounds"
+            width={640}
+            height={480}
+            className="h-full w-full object-cover grayscale"
+          />
+        </div>
         <div>
           <span className="mb-4 block font-mono text-xs uppercase tracking-[0.08em] text-brass">
             Board of Trustees · 2025 — Present

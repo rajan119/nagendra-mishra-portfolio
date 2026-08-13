@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 type Venture = {
   name: string;
   years: string;
@@ -7,6 +9,7 @@ type Venture = {
   image: string;
 };
 
+// --- DATA (Function ke bahar, top par) ---
 const VENTURES: Venture[] = [
   {
     name: "B2B Growth Hub",
@@ -14,7 +17,7 @@ const VENTURES: Venture[] = [
     role: "Managing Director",
     desc: "A global business incubator built around an annual membership program — expos, conferences, networking events, a business magazine, and growth-specific workshops for founders ready to scale.",
     stat: "Members average 300% growth in two years",
-    image: "https://picsum.photos/seed/b2bgrowthhub/640/420",
+    image: "/images/260.png", 
   },
   {
     name: "Visualytes",
@@ -22,7 +25,7 @@ const VENTURES: Venture[] = [
     role: "Managing Director",
     desc: "A web and marketing agency working mostly with UK clients, from early-stage startups to established enterprises, on bespoke digital solutions.",
     stat: "1,500+ projects delivered · min. 85% client revenue growth",
-    image: "https://picsum.photos/seed/visualytes/640/420",
+    image: "/images/258.png", 
   },
   {
     name: "Geecon Global",
@@ -30,7 +33,7 @@ const VENTURES: Venture[] = [
     role: "Director of Business Intelligence",
     desc: "Leads a team turning complex data into decisions — building BI frameworks that connect technical teams with executive stakeholders.",
     stat: "Cut operating costs 60%, lifted efficiency 45%",
-    image: "https://picsum.photos/seed/geeconglobal/640/420",
+    image: "/images/254.png", 
   },
   {
     name: "Geecon Systems",
@@ -38,7 +41,7 @@ const VENTURES: Venture[] = [
     role: "Managing Director",
     desc: "Where it started: the first software company, founded from a coffee shop in Mumbai and grown into a 7-figure business.",
     stat: "The origin file — still active",
-    image: "https://picsum.photos/seed/geeconsystems/640/420",
+    image: "/images/259.png", 
   },
   {
     name: "BBX UK",
@@ -46,7 +49,7 @@ const VENTURES: Venture[] = [
     role: "Brokerage Director",
     desc: "Trade-exchange brokerage covering Basingstoke & Surrey, the Isle of Man, and the Channel Islands.",
     stat: "Regional brokerage, South of England",
-    image: "https://picsum.photos/seed/bbxuk/640/420",
+    image: "/images/256.png", 
   },
   {
     name: "Banner Press & Hospitality Brands",
@@ -54,7 +57,7 @@ const VENTURES: Venture[] = [
     role: "Publishing & Hospitality",
     desc: "A publishing arm alongside several hospitality brands, rounding out a portfolio built for community and reach as much as revenue.",
     stat: "Part of a 13-venture portfolio",
-    image: "https://picsum.photos/seed/bannerpress/640/420",
+    image: "/images/247.png", 
   },
 ];
 
@@ -67,6 +70,7 @@ const CLOSED_FILES = [
   },
 ];
 
+// --- COMPONENT (Sirf ek baar export) ---
 export default function Ventures() {
   return (
     <section id="ventures" className="bg-paper py-20 text-ink sm:py-24">
@@ -88,12 +92,18 @@ export default function Ventures() {
         <div className="grid grid-cols-1 gap-px border border-ink/15 bg-ink/15 sm:grid-cols-2">
           {VENTURES.map((v) => (
             <div key={v.name} className="flex flex-col bg-paper2">
-              <img
-                src={v.image}
-                alt={`${v.name} — placeholder imagery`}
-                className="h-40 w-full object-cover grayscale"
-                loading="lazy"
-              />
+              
+              {/* --- UPDATED IMAGE SECTION (No crop, images fully visible) --- */}
+              <div className="h-56 w-full overflow-hidden bg-white p-2 flex items-center justify-center">
+                <Image
+                  src={v.image}
+                  alt={`${v.name}`}
+                  width={640}
+                  height={420}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+              
               <div className="flex flex-1 flex-col p-7">
                 <div className="mb-2.5 flex items-baseline justify-between gap-3">
                   <h3 className="font-display text-xl">{v.name}</h3>

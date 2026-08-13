@@ -1,3 +1,4 @@
+// components/Nav.tsx
 "use client";
 
 import { useState } from "react";
@@ -5,11 +6,14 @@ import { useState } from "react";
 const NAV_ITEMS = [
   { label: "Home", href: "#top" },
   { label: "About", href: "#about" },
+  { label: "Services", href: "#skills" },        // NEW
   { label: "Ventures", href: "#ventures" },
   { label: "Track Record", href: "#track-record" },
   { label: "Mediation", href: "#mediation" },
+  { label: "Coaching", href: "#coaching" },      // NEW
   { label: "Community", href: "#community" },
   { label: "Credentials", href: "#credentials" },
+  { label: "Publications", href: "#books" },     // NEW
   { label: "Contact", href: "#contact" },
 ];
 
@@ -17,14 +21,14 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-paper/10 bg-[#0f2a2a]  backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1080px] items-center justify-between px-5 py-4 sm:px-8">
+    <header className="sticky top-0 z-50 border-b border-paper/10 bg-[#0f2a2a] backdrop-blur-md">
+      <div className="mx-auto flex max-w-[1260px] items-center justify-between px-5 py-4 sm:px-8">
         <a
           href="#top"
           className="font-display text-xl tracking-tight"
           onClick={() => setOpen(false)}
         >
-          N<span className="text-brass">M</span> · Mishra
+          <span className="text-brass">Nagendra Mishra</span>
         </a>
 
         {/* Desktop nav */}
@@ -69,7 +73,7 @@ export default function Nav() {
       {/* Mobile dropdown panel */}
       <div
         className={`overflow-hidden border-t border-paper/10 bg-ink transition-[max-height] duration-300 ease-in-out lg:hidden ${
-          open ? "max-h-[420px]" : "max-h-0"
+          open ? "max-h-[600px]" : "max-h-0"
         }`}
       >
         <nav className="flex flex-col px-5 py-2 sm:px-8">
