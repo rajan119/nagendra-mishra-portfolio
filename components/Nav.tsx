@@ -7,7 +7,8 @@ const NAV_ITEMS = [
   { label: "Home", href: "#top" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#skills" },        // NEW
-  { label: "Ventures", href: "#ventures" },
+  { label: "Speaking Engagements", href: "/SpeakingEngagements" },        // NEW
+  { label: "Ventures", href: "/BusinessesVentures" },
   { label: "Track Record", href: "#track-record" },
   { label: "Mediation", href: "#mediation" },
   { label: "Coaching", href: "#coaching" },      // NEW
@@ -22,7 +23,7 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-paper/10 bg-[#0f2a2a] backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1260px] items-center justify-between px-5 py-4 sm:px-8">
+      <div className="mx-auto flex max-w-[1297px] items-center justify-between px-5 py-4 sm:px-8">
         <a
           href="#top"
           className="font-display text-xl tracking-tight"
@@ -32,7 +33,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden gap-7 lg:flex">
+        <nav className="hidden gap-3 lg:flex">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
