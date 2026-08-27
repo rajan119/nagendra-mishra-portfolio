@@ -4,12 +4,12 @@
 import { useState } from "react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "#top" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "About" },
   { label: "Services", href: "#skills" },        // NEW
   { label: "Speaking Engagements", href: "/SpeakingEngagements" },        // NEW
   { label: "Ventures", href: "/BusinessesVentures" },
-  { label: "Track Record", href: "#track-record" },
+  { label: "Mentorship", href: "/Mentorship" },
   { label: "Mediation", href: "#mediation" },
   { label: "Coaching", href: "#coaching" },      // NEW
   { label: "Community", href: "#community" },
