@@ -1,7 +1,7 @@
 // pages/speaking-engagements.tsx (or app/speaking-engagements/page.tsx)
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
@@ -31,7 +31,142 @@ const itemVariants: Variants = {
   },
 };
 
+// Timeline data
+const timelineData = [
+  {
+    year: "2000",
+    heading: "Creating jobs in small businesses",
+    description: "Integer vitae justo eget magna. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Tempor id eu nisl nunc mi faucibus.",
+    points: [
+      "Molestie ac feugiat sed",
+      "Vestibulum ullamcorper",
+      "Pulvinar pellentesque habitant"
+    ]
+  },
+  {
+    year: "2005",
+    heading: "Affordable housing",
+    description: "Integer vitae justo eget magna. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Tempor id eu nisl nunc mi faucibus.",
+    points: [
+      "Molestie ac feugiat sed",
+      "Vestibulum ullamcorper",
+      "Pulvinar pellentesque habitant"
+    ]
+  },
+  {
+    year: "2010",
+    heading: "Public safety",
+    description: "Integer vitae justo eget magna. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Tempor id eu nisl nunc mi faucibus.",
+    points: [
+      "Molestie ac feugiat sed",
+      "Vestibulum ullamcorper",
+      "Pulvinar pellentesque habitant"
+    ]
+  },
+  {
+    year: "2015",
+    heading: "Environmental justice",
+    description: "Integer vitae justo eget magna. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Tempor id eu nisl nunc mi faucibus.",
+    points: [
+      "Molestie ac feugiat sed",
+      "Vestibulum ullamcorper",
+      "Pulvinar pellentesque habitant"
+    ]
+  },
+  {
+    year: "2020",
+    heading: "Jobs and workers",
+    description: "Integer vitae justo eget magna. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Tempor id eu nisl nunc mi faucibus.",
+    points: [
+      "Molestie ac feugiat sed",
+      "Vestibulum ullamcorper",
+      "Pulvinar pellentesque habitant"
+    ]
+  }
+];
+
 export default function SpeakingEngagementsPage() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let scrollInterval: NodeJS.Timeout;
+    let scrollDirection = 1; // 1 for down, -1 for up
+
+    const startAutoScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (!isPaused && container) {
+          const maxScroll = container.scrollHeight - container.clientHeight;
+          const currentScroll = container.scrollTop;
+          
+          // Check if at bottom
+          if (currentScroll >= maxScroll - 2) {
+            setIsAtBottom(true);
+            scrollDirection = -1; // Change direction to up
+          }
+          
+          // Check if at top
+          if (currentScroll <= 2) {
+            setIsAtBottom(false);
+            scrollDirection = 1; // Change direction to down
+          }
+
+          // Scroll in current direction
+          container.scrollBy({
+            top: 1 * scrollDirection,
+            behavior: 'smooth'
+          });
+        }
+      }, 50);
+    };
+
+    // Pause on hover
+    const handleMouseEnter = () => {
+      setIsPaused(true);
+    };
+    
+    const handleMouseLeave = () => {
+      setIsPaused(false);
+    };
+
+    container.addEventListener('mouseenter', handleMouseEnter);
+    container.addEventListener('mouseleave', handleMouseLeave);
+
+    startAutoScroll();
+
+    return () => {
+      clearInterval(scrollInterval);
+      container.removeEventListener('mouseenter', handleMouseEnter);
+      container.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [isPaused]);
+
+  // Manual scroll controls
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      setIsAtBottom(false);
+    }
+  };
+
+  const scrollToBottom = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+      setIsAtBottom(true);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -91,8 +226,9 @@ export default function SpeakingEngagementsPage() {
             variants={containerVariants}
             className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16"
           >
-            {/* Left: more about Mayke + principles */}
+            {/* Left: more about Mayke + Timeline Cards with Auto-Scroll */}
             <motion.div variants={itemVariants} className="lg:col-span-1 space-y-6">
+              {/* More about Mayke card */}
               <motion.div
                 className="bg-gray-50 border border-gray-200 rounded-2xl p-7 hover:bg-gray-100 hover:border-red-300 transition-all duration-300"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
@@ -100,7 +236,7 @@ export default function SpeakingEngagementsPage() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-red-300">
                     <Image
-                      src="/images/mayke-schuurs.jpg"
+                      src="/images/SpeakingEngagements6.jpg"
                       alt="Mayke Schuurs"
                       fill
                       className="object-cover"
@@ -139,18 +275,97 @@ export default function SpeakingEngagementsPage() {
                 </motion.div>
               </motion.div>
 
-              {/* Social sciences card */}
+              {/* Timeline Cards with Auto-Scroll */}
               <motion.div
-                className="bg-gray-50 border border-gray-200 rounded-2xl p-7 hover:bg-gray-100 hover:border-red-300 transition-all duration-300"
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="relative bg-white border border-gray-200 rounded-2xl overflow-hidden"
+                whileHover={{ borderColor: '#ef4444' }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="flex items-center gap-3">
-                  <i className="fas fa-globe-americas text-2xl text-red-400" />
-                  <h3 className="text-red-600 text-xl font-light">Social Sciences<br /><span className="text-sm text-gray-500">in the 21st century</span></h3>
+                {/* Scroll Controls */}
+                <div className="absolute top-2 right-2 z-10 flex gap-1">
+                  <button
+                    onClick={scrollToTop}
+                    className="bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-md hover:bg-red-50 transition-colors text-red-400 hover:text-red-600 text-xs"
+                    title="Scroll to top"
+                  >
+                    <i className="fas fa-chevron-up" />
+                  </button>
+                  <button
+                    onClick={scrollToBottom}
+                    className="bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-md hover:bg-red-50 transition-colors text-red-400 hover:text-red-600 text-xs"
+                    title="Scroll to bottom"
+                  >
+                    <i className="fas fa-chevron-down" />
+                  </button>
                 </div>
-                <p className="mt-3 text-gray-600 text-sm leading-relaxed">
-                  Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam.
-                </p>
+
+                {/* Auto-scroll container */}
+                <div
+                  ref={scrollContainerRef}
+                  className="max-h-[400px] overflow-y-auto scroll-smooth p-4 space-y-4 custom-scrollbar"
+                  style={{
+                    scrollbarWidth: 'thin',
+                    scrollbarColor: '#ef4444 #f3f4f6'
+                  }}
+                >
+                  {timelineData.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      className="bg-gray-50 border border-gray-200 rounded-xl p-5 hover:border-red-300 transition-all duration-300"
+                      whileHover={{ 
+                        scale: 1.02,
+                        backgroundColor: '#fef2f2',
+                        transition: { duration: 0.2 }
+                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0">
+                          <span className="inline-block bg-red-100 text-red-600 font-bold text-xs px-3 py-1 rounded-full">
+                            {item.year}
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-red-600 font-medium text-sm leading-tight">
+                            {item.heading}
+                          </h4>
+                          <p className="text-gray-600 text-xs mt-1.5 leading-relaxed">
+                            {item.description}
+                          </p>
+                          <ul className="mt-2 space-y-1">
+                            {item.points.map((point, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-xs text-gray-500">
+                                <i className="fas fa-circle text-red-400 text-[6px] mt-1.5" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Auto-scroll indicator */}
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
+                  <motion.div
+                    animate={{
+                      opacity: [0.3, 1, 0.3],
+                      y: [0, 3, 0]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="text-[8px] uppercase tracking-widest text-gray-400 bg-white/90 px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"
+                  >
+                    <i className={`fas fa-arrow-${isAtBottom ? 'up' : 'down'} mr-0.5`} />
+                    Auto-scroll {isAtBottom ? '(up)' : '(down)'}
+                  </motion.div>
+                </div>
               </motion.div>
             </motion.div>
 
@@ -170,9 +385,9 @@ export default function SpeakingEngagementsPage() {
                   },
                 }}
               >
-                <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4 bg-gray-100">
+                <div className="relative w-full  h-[400px] rounded-lg overflow-hidden mb-4 bg-gray-100">
                   <Image
-                    src="/images/world-congress.jpg"
+                   src="/images/SpeakingEngagements2.jpg"
                     alt="World Congress Virtual"
                     fill
                     className="object-cover"
@@ -208,9 +423,9 @@ export default function SpeakingEngagementsPage() {
                   },
                 }}
               >
-                <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4 bg-gray-100">
+                <div className="relative w-full h-[400px] rounded-lg overflow-hidden mb-4 bg-gray-100">
                   <Image
-                    src="/images/virtual-summit.jpg"
+                    src="/images/SpeakingEngagements3.jpg"
                     alt="Virtual Summit"
                     fill
                     className="object-cover"
@@ -246,9 +461,9 @@ export default function SpeakingEngagementsPage() {
                   },
                 }}
               >
-                <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4 bg-gray-100">
+                <div className="relative w-full h-[460px] rounded-lg overflow-hidden mb-4 bg-gray-100">
                   <Image
-                    src="/images/election-day.jpg"
+                    src="/images/SpeakingEngagements6.jpg"
                     alt="Election Day"
                     fill
                     className="object-cover"
@@ -297,17 +512,17 @@ export default function SpeakingEngagementsPage() {
                 {
                   title: 'Coronavirus disease 2019',
                   description: 'COVID-19 is a contagious disease caused by the coronavirus SARS-CoV-2. In January...',
-                  image: '/images/covid-news-1.jpg',
+                  image: '/images/SpeakingEngagements7.jpg',
                 },
                 {
                   title: 'Coronavirus disease 2019',
                   description: 'COVID-19 is a contagious disease caused by the coronavirus SARS-CoV-2. In January...',
-                  image: '/images/covid-news-2.jpg',
+                  image: '/images/SpeakingEngagements7.jpg',
                 },
                 {
                   title: 'Coronavirus disease 2019',
                   description: 'COVID-19 is a contagious disease caused by the coronavirus SARS-CoV-2. In January...',
-                  image: '/images/covid-news-3.jpg',
+                  image: '/images/SpeakingEngagements8.jpg',
                 },
               ].map((news, index) => (
                 <motion.article
@@ -362,6 +577,24 @@ export default function SpeakingEngagementsPage() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Custom CSS for scrollbar */}
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f3f4f6;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #ef4444;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #dc2626;
+        }
+      `}</style>
     </>
   );
 }
