@@ -6,15 +6,14 @@ import { useState } from "react";
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "About" },
-  { label: "Services", href: "#skills" },        // NEW
   { label: "Speaking Engagements", href: "/SpeakingEngagements" },        // NEW
   { label: "Ventures", href: "/BusinessesVentures" },
   { label: "Mentorship", href: "/Mentorship" },
-  { label: "Mediation", href: "#mediation" },
-  { label: "Coaching", href: "#coaching" },      // NEW
-  { label: "Community", href: "#community" },
-  { label: "Credentials", href: "#credentials" },
-  { label: "Publications", href: "#books" },     // NEW
+  // { label: "Mediation", href: "#mediation" },
+  // { label: "Coaching", href: "#coaching" },      // NEW
+  { label: "Authorship", href: "/Authorship" },
+  // { label: "Credentials", href: "#credentials" },
+  { label: "Publications", href: "/Books" },     // NEW
   { label: "Contact", href: "#contact" },
 ];
 

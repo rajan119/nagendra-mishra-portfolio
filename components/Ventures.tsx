@@ -73,25 +73,25 @@ const CLOSED_FILES = [
 // --- COMPONENT (Sirf ek baar export) ---
 export default function Ventures() {
   return (
-    <section id="ventures" className="bg-paper py-20 text-ink sm:py-24">
+    <section id="ventures" className="bg-white py-20 text-black sm:py-24">
       <div className="mx-auto max-w-[1080px] px-5 sm:px-8">
         <div className="mb-12 max-w-[620px]">
-          <span className="mb-3.5 block font-mono text-xs uppercase tracking-[0.14em] text-forest">
+          <span className="mb-3.5 block font-mono text-xs uppercase tracking-[0.14em] text-red-600">
             The Ventures
           </span>
-          <h2 className="font-display text-[28px] leading-[1.15] sm:text-[38px]">
+          <h2 className="font-display text-[28px] leading-[1.15] text-black sm:text-[38px]">
             Five open files, each from a different chapter
           </h2>
-          <p className="mt-4 text-[15.5px] text-ink/60">
+          <p className="mt-4 text-[15.5px] text-black/70">
             From a single software company started in a Mumbai coffee shop in
             2011 to a portfolio spanning incubation, digital services, and
             brokerage today.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-px border border-ink/15 bg-ink/15 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-px border border-black/15 bg-black/15 sm:grid-cols-2">
           {VENTURES.map((v) => (
-            <div key={v.name} className="flex flex-col bg-paper2">
+            <div key={v.name} className="flex flex-col bg-white">
               
               {/* --- UPDATED IMAGE SECTION (No crop, images fully visible) --- */}
               <div className="h-56 w-full overflow-hidden bg-white p-2 flex items-center justify-center">
@@ -106,19 +106,19 @@ export default function Ventures() {
               
               <div className="flex flex-1 flex-col p-7">
                 <div className="mb-2.5 flex items-baseline justify-between gap-3">
-                  <h3 className="font-display text-xl">{v.name}</h3>
-                  <span className="whitespace-nowrap font-mono text-[11.5px] text-ink/50">
+                  <h3 className="font-display text-xl text-black">{v.name}</h3>
+                  <span className="whitespace-nowrap font-mono text-[11.5px] text-black/50">
                     {v.years}
                   </span>
                 </div>
-                <div className="mb-3 font-mono text-[12.5px] tracking-wide text-forest">
+                <div className="mb-3 font-mono text-[12.5px] tracking-wide text-red-600">
                   {v.role}
                 </div>
-                <p className="mb-3.5 text-[14.5px] text-ink/60">{v.desc}</p>
-                <span className="mt-auto border-t border-ink/15 pt-2.5 font-mono text-xs text-ink">
+                <p className="mb-3.5 text-[14.5px] text-black/70">{v.desc}</p>
+                <span className="mt-auto border-t border-black/15 pt-2.5 font-mono text-xs text-black">
                   {v.stat.split(/(\d[\d.,]*%?\+?)/).map((part, i) =>
                     /\d/.test(part) ? (
-                      <b key={i} className="text-forest">
+                      <b key={i} className="text-red-600">
                         {part}
                       </b>
                     ) : (
@@ -131,15 +131,15 @@ export default function Ventures() {
           ))}
         </div>
 
-        <div className="mt-9 border-t border-ink/15 pt-7">
-          <div className="mb-3.5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-ink/50">
+        <div className="mt-9 border-t border-black/15 pt-7">
+          <div className="mb-3.5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-black/50">
             Closed files — past directorships
           </div>
           <div className="flex flex-wrap gap-x-7 gap-y-2.5">
             {CLOSED_FILES.map((c) => (
               <div key={c.name} className="text-[13.5px]">
-                <span className="font-semibold">{c.name}</span>
-                <span className="ml-1.5 font-mono text-[11.5px] text-ink/50">
+                <span className="font-semibold text-black">{c.name}</span>
+                <span className="ml-1.5 font-mono text-[11.5px] text-black/50">
                   {c.date}
                 </span>
               </div>

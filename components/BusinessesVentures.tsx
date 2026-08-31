@@ -83,36 +83,36 @@ const donationCards = [
 
 export default function BusinessesVentures() {
   return (
-    <section className="bg-[#0f2a2a] overflow-hidden py-16 sm:py-24">
+    <section className="bg-white overflow-hidden py-16 sm:py-24">
       {/* ------------------------------------------------------------- */}
       {/* Issues grid                                                    */}
       {/* ------------------------------------------------------------- */}
       <div className="mx-auto max-w-[1080px] px-5 sm:px-8">
-        <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-brass">
+        <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-red-600">
           Ref. NM / Where I Stand
         </span>
-        <h2 className="max-w-[20ch] font-display text-[32px] leading-[1.1] tracking-tight sm:text-[40px]">
-          The issues that <em className="text-brass italic">matter.</em>
+        <h2 className="max-w-[20ch] font-display text-[32px] leading-[1.1] tracking-tight text-black sm:text-[40px]">
+          The issues that <em className="text-red-600 italic">matter.</em>
         </h2>
 
         <div className="mt-14 grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">
           {issues.map((issue) => (
             <article key={issue.title} className="group">
               <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs uppercase tracking-[0.14em] text-brass">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] text-red-600">
                   {issue.number}
                 </span>
-                <h3 className="font-display text-2xl tracking-tight text-paper">
+                <h3 className="font-display text-2xl tracking-tight text-black">
                   {issue.title}
                 </h3>
               </div>
-              <hr className="mt-4 border-paper/15" />
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-paper/60">
+              <hr className="mt-4 border-black/15" />
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-black/60">
                 {issue.copy}
               </p>
               <a
                 href="#"
-                className="mt-6 inline-flex items-center gap-1.5 font-mono text-[12.5px] uppercase tracking-[0.06em] text-brass transition-colors group-hover:text-[#ddbf7f]"
+                className="mt-6 inline-flex items-center gap-1.5 font-mono text-[12.5px] uppercase tracking-[0.06em] text-red-600 transition-colors group-hover:text-[#cc0000]"
               >
                 More details
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
@@ -131,16 +131,16 @@ export default function BusinessesVentures() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left column */}
           <div>
-            <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-brass">
+            <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-red-600">
               Get Involved
             </span>
-            <h2 className="max-w-[14ch] font-display text-[34px] leading-[1.08] tracking-tight sm:text-[42px]">
-              Become a <em className="text-brass italic">Volunteer.</em>
+            <h2 className="max-w-[14ch] font-display text-[34px] leading-[1.08] tracking-tight text-black sm:text-[42px]">
+              Become a <em className="text-red-600 italic">Volunteer.</em>
             </h2>
 
             <div className="mt-6 flex items-start gap-6">
-              <span className="mt-3 h-px w-10 shrink-0 bg-paper/25" aria-hidden />
-              <p className="max-w-xs text-[15px] leading-relaxed text-paper/60">
+              <span className="mt-3 h-px w-10 shrink-0 bg-black/25" aria-hidden />
+              <p className="max-w-xs text-[15px] leading-relaxed text-black/60">
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                 fugiat nulla pariatur
               </p>
@@ -148,12 +148,12 @@ export default function BusinessesVentures() {
 
             <a
               href="#volunteer"
-              className="mt-9 inline-block rounded-sm bg-brass px-6 py-3 font-mono text-[12.5px] uppercase tracking-[0.06em] text-ink transition-colors hover:bg-[#ddbf7f]"
+              className="mt-9 inline-block rounded-sm bg-red-600 px-6 py-3 font-mono text-[12.5px] uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#cc0000]"
             >
               Read more
             </a>
 
-            <div className="relative mt-10 aspect-[4/3] w-full overflow-hidden rounded-sm ring-1 ring-paper/15">
+            <div className="relative mt-10 aspect-[4/3] w-full overflow-hidden rounded-sm ring-1 ring-black/15">
               <Image
                  src="/images/volunteer-canvassing1.jpg"
                 alt="Volunteer canvassing and speaking with a resident at her front door"
@@ -166,7 +166,7 @@ export default function BusinessesVentures() {
 
           {/* Right column */}
           <div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm ring-1 ring-paper/15">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm ring-1 ring-black/15">
               <Image
                src="/images/volunteer-canvassing.jpg"
                 alt="A voter holding a ballot card wearing an 'I Voted' sticker"
@@ -180,14 +180,14 @@ export default function BusinessesVentures() {
               {volunteerSteps.map((step) => (
                 
                 <li key={step.number} className="flex items-start gap-5">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-paper/15 bg-paper/5 font-mono text-sm text-brass">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-black/15 bg-black/5 font-mono text-sm text-red-600">
                     {step.number}
                   </span>
                   <div>
-                    <h4 className="font-display text-lg tracking-tight text-paper">
+                    <h4 className="font-display text-lg tracking-tight text-black">
                       {step.title}
                     </h4>
-                    <p className="mt-1 max-w-sm text-[15px] leading-relaxed text-paper/60">
+                    <p className="mt-1 max-w-sm text-[15px] leading-relaxed text-black/60">
                       {step.copy}
                     </p>
                   </div>
@@ -202,16 +202,16 @@ export default function BusinessesVentures() {
       {/* Promotion / donation band                                      */}
       {/* ------------------------------------------------------------- */}
       <div className="mx-auto mt-24 max-w-[1080px] px-5 sm:px-8 sm:mt-32">
-        <div className="rounded-sm border border-paper/15 bg-paper/[0.03] px-6 py-12 sm:px-12 sm:py-16">
-          <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-brass">
+        <div className="rounded-sm border border-black/15 bg-white px-6 py-12 sm:px-12 sm:py-16">
+          <span className="mb-5 block font-mono text-xs uppercase tracking-[0.14em] text-red-600">
             Our Mission
           </span>
-          <h2 className="max-w-[26ch] font-display text-[30px] leading-[1.15] tracking-tight sm:text-[38px]">
-            We promote the exchange of <em className="text-brass italic">knowledge</em> to enable
+          <h2 className="max-w-[26ch] font-display text-[30px] leading-[1.15] tracking-tight text-black sm:text-[38px]">
+            We promote the exchange of <em className="text-red-600 italic">knowledge</em> to enable
             innovation.
           </h2>
 
-          <div className="relative mt-10 aspect-[16/8] w-full overflow-hidden rounded-sm ring-1 ring-paper/15 sm:aspect-[16/7]">
+          <div className="relative mt-10 aspect-[16/8] w-full overflow-hidden rounded-sm ring-1 ring-black/15 sm:aspect-[16/7]">
             <Image
               src="/images/volunteer-canvassing2.jpg"
               alt="A man in a suit reading papers at a desk with a small American flag beside him"
@@ -221,14 +221,14 @@ export default function BusinessesVentures() {
             />
           </div>
 
-          <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-paper/15 pt-10 sm:flex-row sm:items-center">
-            <h3 className="font-display text-2xl leading-snug tracking-tight text-paper sm:text-[28px]">
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-black/15 pt-10 sm:flex-row sm:items-center">
+            <h3 className="font-display text-2xl leading-snug tracking-tight text-black sm:text-[28px]">
               Your contribution is important for us.
             </h3>
 
             <a
               href="#donate"
-              className="rounded-sm bg-brass px-6 py-3 font-mono text-[12.5px] uppercase tracking-[0.06em] text-ink transition-colors hover:bg-[#ddbf7f]"
+              className="rounded-sm bg-red-600 px-6 py-3 font-mono text-[12.5px] uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#cc0000]"
             >
               Donate here
             </a>
@@ -238,16 +238,16 @@ export default function BusinessesVentures() {
             {donationCards.map((card) => (
               <div
                 key={card.title}
-                className="flex items-center gap-4 rounded-sm border border-paper/15 bg-paper/[0.03] p-4"
+                className="flex items-center gap-4 rounded-sm border border-black/15 bg-white p-4"
               >
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-sm bg-paper/10">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-sm bg-black/10">
                   <Image src={card.image} alt="" fill className="object-cover" sizes="64px" />
                 </div>
                 <div>
-                  <h4 className="font-display text-base tracking-tight text-paper">
+                  <h4 className="font-display text-base tracking-tight text-black">
                     {card.title}
                   </h4>
-                  <p className="mt-1 text-sm leading-snug text-paper/60">{card.copy}</p>
+                  <p className="mt-1 text-sm leading-snug text-black/60">{card.copy}</p>
                 </div>
               </div>
             ))}

@@ -56,16 +56,16 @@ const BOOKS: Book[] = [
 
 export default function Books() {
   return (
-    <section id="books" className="bg-[#0f2a2a] py-20 text-paper sm:py-24">
+    <section id="books" className="bg-white py-20 text-black sm:py-24">
       <div className="mx-auto max-w-[1080px] px-5 sm:px-8">
         <div className="mb-12 max-w-[620px]">
-          <span className="mb-3.5 block font-mono text-xs uppercase tracking-[0.14em] text-brass">
+          <span className="mb-3.5 block font-mono text-xs uppercase tracking-[0.14em] text-red-600">
             Authorship
           </span>
-          <h2 className="font-display text-[28px] leading-[1.15] sm:text-[38px]">
+          <h2 className="font-display text-[28px] leading-[1.15] text-black sm:text-[38px]">
             Published works & insights
           </h2>
-          <p className="mt-4 text-[15.5px] text-paper/60">
+          <p className="mt-4 text-[15.5px] text-black/60">
             Author of multiple books on time management, entrepreneurship,
             sales psychology, and corporate leadership.
           </p>
@@ -75,9 +75,9 @@ export default function Books() {
           {BOOKS.map((book) => (
             <div
               key={book.title}
-              className="group overflow-hidden border border-paper/10 bg-paper/5 transition-all duration-300 hover:border-brass hover:bg-paper/10"
+              className="group overflow-hidden border border-black/10 bg-black/5 transition-all duration-300 hover:border-red-600 hover:bg-black/10"
             >
-              <div className="relative h-48 w-full overflow-hidden bg-ink/20">
+              <div className="relative h-48 w-full overflow-hidden bg-black/20">
                 <Image
                   src={book.image}
                   alt={book.title}
@@ -85,24 +85,24 @@ export default function Books() {
                   height={300}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0f2a2a] to-transparent p-4">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-brass">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-red-600">
                     {book.category}
                   </span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-display text-[18px] leading-tight">
+                <h3 className="font-display text-[18px] leading-tight text-black">
                   {book.title}
                 </h3>
-                <p className="mt-1.5 text-[13px] text-paper/60">
+                <p className="mt-1.5 text-[13px] text-black/60">
                   {book.subtitle}
                 </p>
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-brass">
+                  <span className="font-mono text-[11px] text-red-600">
                     {book.year}
                   </span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-paper/40">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-black/40">
                     Read More →
                   </span>
                 </div>
