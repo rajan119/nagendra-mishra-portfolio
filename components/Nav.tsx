@@ -14,7 +14,7 @@ const NAV_ITEMS = [
   { label: "Authorship", href: "/Authorship" },
   // { label: "Credentials", href: "#credentials" },
   { label: "Publications", href: "/Books" },     // NEW
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/Contact " },
 ];
 
 export default function Nav() {
