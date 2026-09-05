@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -9,7 +9,7 @@ const fadeUp = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
+      ease: cubicBezier(0.22, 1, 0.36, 1),
     },
   },
 };
@@ -21,7 +21,7 @@ const fadeLeft = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: cubicBezier(0.22, 1, 0.36, 1),
     },
   },
 };
@@ -33,7 +33,7 @@ const fadeRight = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: cubicBezier(0.22, 1, 0.36, 1),
     },
   },
 };
@@ -218,7 +218,7 @@ export default function MentorshipPage() {
 
             <VideoCard
               image="/images/mentorship/mentorship-video-2.jpg"
-               videoUrl="https://youtu.be/aY_YRlS-U4Y?si=Si3PTGAMzvfBWeKZ"
+              videoUrl="https://youtu.be/aY_YRlS-U4Y?si=Si3PTGAMzvfBWeKZ"
               title="Build Your Future"
             />
           </motion.div>
