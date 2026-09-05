@@ -397,8 +397,8 @@ const CampaignLandingPage = () => {
               <div className="font-bold text-gray-800">EVENTS</div>
             </div>
             <div className="text-right text-gray-600">
-              <div>GRAPHIC DESIGN BY: [INSERT NAME]</div>
-              <div>DESIGNED BY: [INSERT NAME]</div>
+              {/* <div>GRAPHIC DESIGN BY: [INSERT NAME]</div>
+              <div>DESIGNED BY: [INSERT NAME]</div> */}
             </div>
           </div>
         </motion.footer>
